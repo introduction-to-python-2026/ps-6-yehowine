@@ -1,9 +1,8 @@
 def create_codon_dict(file_path):
-    codon_dict = {}
-    with open(file_path, 'r') as file:
-        for line in file:
-            codon, amino_acid, single_letter, full_name = line.split()
-            codon_dict[codon] = single_letter
-    return codon_dic
+ 
+    codon2amino_acid_dict = {}
+    with open(file_path) as codons_file:
+        codon2amino_acid_dict = {row.strip().split('\t')[0]: row.strip().split('\t')[2] for row in codons_file.readlines()}
+    return codon2amino_acid_dict
 
 
